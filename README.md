@@ -19,11 +19,14 @@ Where's Schueller?
     <title>Geolocation Visualization</title>
 </head>
 <body>
-    <iframe 
-        src="https://kaylamusser.github.io/geolocation_distance_chart_2.html" 
-        width="100%" 
-        height="600" 
-        frameborder="0">
-    </iframe>
+    <h1>Geolocation Data Visualization</h1>
+    <p>This chart displays geolocation data trends over time.</p>
+    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <iframe 
+            src="https://kaylamusser.github.io/geolocation_distance_chart_2.html" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+            frameborder="0">
+        </iframe>
+    </div>
 </body>
 </html>
