@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import plotly.express as px
 from google.colab import drive
-
 import os
+
+# List the files in the Google Drive directory
 os.listdir('/content/drive/MyDrive/')
 
 # Mount Google Drive
@@ -34,7 +35,8 @@ yearly_average_night_points = (
     .apply(lambda x: x.groupby(x.index.date).size().mean())
 )
 
-print(f'Overall average number of data points recorded between 10 pm and 6 am: {overall_average_night_points}')
+# Print results
+print(f"Overall average number of data points recorded between 10 pm and 6 am: {overall_average_night_points}")
 print("\nYearly average number of data points recorded between 10 pm and 6 am:")
 print(yearly_average_night_points)
 
@@ -44,15 +46,25 @@ fig = px.line(
     title='Yearly Average Nighttime Data Points',
     labels={'index': 'Year', 'value': 'Average Points'}
 )
+
+# Adding a bar chart layer for yearly averages
 fig.add_bar(x=yearly_average_night_points.index, y=yearly_average_night_points.values)
 
+# Update layout for better appearance
 fig.update_layout(
     title_font_size=18,
     xaxis_title="Year",
     yaxis_title="Average Points",
-    legend_title="Legend"
+    legend_title="Legend",
+    xaxis=dict(type='category'),  # Ensure x-axis shows years as categories
 )
 
+# Customize line and bar colors
+fig.data[0].update(line=dict(color='green', width=2))  # Line color and thickness
+fig.data[1].update(marker_color='blue')  # Bar color
+
 # Save Plotly chart as an HTML file
-fig.write_html("/content/drive/MyDrive/geolocation_distance_chart_2.html")
-print("Plotly HTML file saved to Google Drive.")
+output_html_path = "/content/drive/MyDrive/geolocation_distance_chart_2.html"
+fig.write_html(output_html_path)
+print(f"Plotly HTML file saved to: {output_html_path}")
+
