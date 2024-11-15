@@ -20,7 +20,7 @@ Where's Schueller?
 </head>
 <body>
     <iframe 
-        src="https://kaylamusser.github.io/repository-name/geolocation_distance_chart_2.html" 
+        src="https://kaylamusser.github.io/geolocation_distance_chart_2.html" 
         width="100%" 
         height="600" 
         frameborder="0">
