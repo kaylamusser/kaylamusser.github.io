@@ -3,9 +3,11 @@ import pandas as pd
 import plotly.express as px
 from google.colab import drive
 import os
+import sys
 
-# List the files in the Google Drive directory
-os.listdir('/content/drive/MyDrive/')
+# Suppress print statements to avoid exporting them
+original_stdout = sys.stdout
+sys.stdout = open(os.devnull, 'w')
 
 # Mount Google Drive
 drive.mount('/content/drive/')
@@ -23,7 +25,6 @@ df['longitude'] = df['longitudeE7'] / 1e7
 df_transformed = df[['latitude', 'longitude', 'accuracy', 'activity']]
 output_path = '/content/drive/MyDrive/TransformedLocationData.pkl'
 df_transformed.to_pickle(output_path)
-print(f'Transformed DataFrame saved to {output_path}')
 
 # Filter data for nighttime
 night_data = df.between_time("22:00", "06:00")
@@ -34,11 +35,6 @@ yearly_average_night_points = (
     night_data.groupby(night_data.index.year)
     .apply(lambda x: x.groupby(x.index.date).size().mean())
 )
-
-# Print results
-print(f"Overall average number of data points recorded between 10 pm and 6 am: {overall_average_night_points}")
-print("\nYearly average number of data points recorded between 10 pm and 6 am:")
-print(yearly_average_night_points)
 
 # Plotting with Plotly for HTML export
 fig = px.line(
@@ -66,5 +62,11 @@ fig.data[1].update(marker_color='blue')  # Bar color
 # Save Plotly chart as an HTML file
 output_html_path = "/content/drive/MyDrive/geolocation_distance_chart_2.html"
 fig.write_html(output_html_path)
-print(f"Plotly HTML file saved to: {output_html_path}")
+
+# Restore original stdout
+sys.stdout.close()
+sys.stdout = original_stdout
+
+# Visualization is embedded in HTML, no print statements will be shown.
+
 
