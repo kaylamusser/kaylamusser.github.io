@@ -13,3 +13,16 @@ Data Sources and Project Ideas:
 Where's Schueller?
 <iframe src="https://kaylamusser.github.io/yourrepo/geolocation_distance_chart.html" width="100%" height="500px"></iframe>
 <iframe src="https://kaylamusser.github.io/yourrepo/geolocation_distance_chart_2.html" width="100%" height="500px"></iframe>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Chart</title>
+</head>
+<body>
+    <h1>Geolocation Distance Chart</h1>
+    <iframe src="geolocation_distance_chart.html" width="100%" height="500px"></iframe>
+</body>
+</html>
