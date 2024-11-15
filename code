@@ -1,0 +1,58 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import plotly.express as px
+from google.colab import drive
+
+import os
+os.listdir('/content/drive/MyDrive/')
+
+# Mount Google Drive
+drive.mount('/content/drive/')
+
+# Load data
+df = pd.read_pickle('/content/drive/MyDrive/LocationData-20241015.pkl')
+
+# Transform data
+df['datetime'] = pd.to_datetime(df['timestamp'], errors='coerce')
+df.set_index('datetime', inplace=True)
+df['latitude'] = df['latitudeE7'] / 1e7
+df['longitude'] = df['longitudeE7'] / 1e7
+
+# Save transformed data
+df_transformed = df[['latitude', 'longitude', 'accuracy', 'activity']]
+output_path = '/content/drive/MyDrive/TransformedLocationData.pkl'
+df_transformed.to_pickle(output_path)
+print(f'Transformed DataFrame saved to {output_path}')
+
+# Filter data for nighttime
+night_data = df.between_time("22:00", "06:00")
+overall_average_night_points = night_data.groupby(night_data.index.date).size().mean()
+
+# Yearly average calculation
+yearly_average_night_points = (
+    night_data.groupby(night_data.index.year)
+    .apply(lambda x: x.groupby(x.index.date).size().mean())
+)
+
+print(f'Overall average number of data points recorded between 10 pm and 6 am: {overall_average_night_points}')
+print("\nYearly average number of data points recorded between 10 pm and 6 am:")
+print(yearly_average_night_points)
+
+# Plotting with Plotly for HTML export
+fig = px.line(
+    yearly_average_night_points,
+    title='Yearly Average Nighttime Data Points',
+    labels={'index': 'Year', 'value': 'Average Points'}
+)
+fig.add_bar(x=yearly_average_night_points.index, y=yearly_average_night_points.values)
+
+fig.update_layout(
+    title_font_size=18,
+    xaxis_title="Year",
+    yaxis_title="Average Points",
+    legend_title="Legend"
+)
+
+# Save Plotly chart as an HTML file
+fig.write_html("/content/drive/MyDrive/geolocation_distance_chart_2.html")
+print("Plotly HTML file saved to Google Drive.")
