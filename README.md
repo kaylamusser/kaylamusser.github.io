@@ -12,8 +12,4 @@ Data Sources and Project Ideas:
 
 Where's Schueller?
 
-<iframe 
-    src="https://kaylamusser.github.io/Where's_Schueller_Visualization2.html" 
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 600px;" 
-    frameborder="0">
-</iframe>
+{% include_relative plot.html %}
