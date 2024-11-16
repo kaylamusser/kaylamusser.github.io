@@ -11,22 +11,12 @@ Data Sources and Project Ideas:
 5. Sex by age by disability
 
 Where's Schueller?
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geolocation Visualization</title>
-</head>
-<body>
-    <h1>Geolocation Data Visualization</h1>
-    <p>This chart displays geolocation data trends over time.</p>
-    <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe 
-            src="https://kaylamusser.github.io/geolocation_distance_chart_2.html" 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-            frameborder="0">
-        </iframe>
-    </div>
-</body>
-</html>
+# Geolocation Data Visualization
+
+This chart displays geolocation data trends over time.
+
+<iframe 
+    src="https://<your-username>.github.io/<repository-name>/geolocation_distance_chart_2.html" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 600px;" 
+    frameborder="0">
+</iframe>
