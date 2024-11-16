@@ -59,6 +59,9 @@ fig.update_layout(
 fig.data[0].update(line=dict(color='green', width=2))  # Line color and thickness
 fig.data[1].update(marker_color='blue')  # Bar color
 
+# Ensure directory exists before saving
+os.makedirs('/content/drive/MyDrive/', exist_ok=True)
+
 # Save Plotly chart as an HTML file
 output_html_path = "/content/drive/MyDrive/geolocation_distance_chart_2.html"
 fig.write_html(output_html_path)
@@ -68,5 +71,6 @@ sys.stdout.close()
 sys.stdout = original_stdout
 
 # Visualization is embedded in HTML, no print statements will be shown.
+
 
 
