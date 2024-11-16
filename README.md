@@ -12,15 +12,13 @@ Data Sources and Project Ideas:
 
 Where's Schueller?
 
-Here is one of the visualizatons I used in a project looking at the location of Professor Schueller. In this study, I aimed to explore the frequency of data points recorded between 10 PM and 6 AM. My hypothesis suggested that nighttime data points would not exhibit a distinct pattern, as the recordings are likely to be random in nature during these hours.
-
-Finding: The trend shows a general decrease in the average number of data points recorded overnight from 2013 to 2024. The highest average was recorded in 2013 (364.75), while the lowest was in 2024 (144.32).
+Here is one of the visualizatons I used in a project looking at the location of Professor Schueller. In this study, I aimed to explore the frequency of data points recorded between 10 PM and 6 AM. My hypothesis suggested that nighttime data points would not exhibit a distinct pattern, as the recordings are likely to be random in nature during these hours. The trend shows a general decrease in the average number of data points recorded overnight from 2013 to 2024. The highest average was recorded in 2013 (364.75), while the lowest was in 2024 (144.32).
 
 {% include_relative Vis2.html %}
+
+This analysis aims to answer the question: How many days was Schueller not within 10 miles of Walla Walla? The hypothesis posits that Schueller spends the majority of their time outside Walla Walla on small trips nearby, rather than traveling to distant locations. The data reveals that Schueller spent 3,483 days outside Walla Walla, with 1,374 of those days being more than 10 miles away from the city. By subtracting the 1,374 days spent over 10 miles from the total number of days outside Walla Walla, we find that Schueller was within 10 miles of Walla Walla for 2,109 days. This suggests that approximately 60% of Schueller's time outside Walla Walla was spent in close proximity, supporting the hypothesis that most trips outside the city are to nearby areas.
+
 
 {% include_relative Vis.html %}
 
 
-ere is an interactive visualization of my geolocation data:
-
-<iframe src="your_plot.html" width="800" height="600"></iframe>
