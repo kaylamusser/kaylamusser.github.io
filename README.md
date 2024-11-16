@@ -12,4 +12,4 @@ Data Sources and Project Ideas:
 
 Where's Schueller?
 
-{% include_relative plot.html %}
+{% include_relative figures/plot.html %}
