@@ -17,3 +17,9 @@ Here is one of the visualizatons I used in a project looking at the location of 
 Finding: The trend shows a general decrease in the average number of data points recorded overnight from 2013 to 2024. The highest average was recorded in 2013 (364.75), while the lowest was in 2024 (144.32).
 
 {% include_relative Vis2.html %}
+
+
+
+ere is an interactive visualization of my geolocation data:
+
+<iframe src="your_plot.html" width="800" height="600"></iframe>
