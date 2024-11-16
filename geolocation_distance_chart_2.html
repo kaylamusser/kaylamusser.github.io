@@ -9,7 +9,7 @@ import sys
 original_stdout = sys.stdout
 sys.stdout = open(os.devnull, 'w')
 
-# Mount Google Drive
+# Mount Google Drive (if using Google Colab)
 drive.mount('/content/drive/')
 
 # Load data
@@ -52,7 +52,7 @@ fig.update_layout(
     xaxis_title="Year",
     yaxis_title="Average Points",
     legend_title="Legend",
-    xaxis=dict(type='category'),  # Ensure x-axis shows years as categories
+    xaxis=dict(type='category')  # Ensure x-axis shows years as categories
 )
 
 # Customize line and bar colors
@@ -71,6 +71,5 @@ sys.stdout.close()
 sys.stdout = original_stdout
 
 # Visualization is embedded in HTML, no print statements will be shown.
-
 
 
