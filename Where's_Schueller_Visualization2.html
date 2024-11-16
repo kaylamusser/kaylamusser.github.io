@@ -1,15 +1,9 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-import plotly.express as px
 from google.colab import drive
-import os
-import sys
 
-# Suppress print statements to avoid exporting them
-original_stdout = sys.stdout
-sys.stdout = open(os.devnull, 'w')
 
-# Mount Google Drive (if using Google Colab)
+# Mount Google Drive
 drive.mount('/content/drive/')
 
 # Load data
@@ -25,6 +19,7 @@ df['longitude'] = df['longitudeE7'] / 1e7
 df_transformed = df[['latitude', 'longitude', 'accuracy', 'activity']]
 output_path = '/content/drive/MyDrive/TransformedLocationData.pkl'
 df_transformed.to_pickle(output_path)
+print(f'Transformed DataFrame saved to {output_path}')
 
 # Filter data for nighttime
 night_data = df.between_time("22:00", "06:00")
@@ -36,40 +31,27 @@ yearly_average_night_points = (
     .apply(lambda x: x.groupby(x.index.date).size().mean())
 )
 
+print(f'Overall average number of data points recorded between 10 pm and 6 am: {overall_average_night_points}')
+print("\nYearly average number of data points recorded between 10 pm and 6 am:")
+print(yearly_average_night_points)
+
 # Plotting with Plotly for HTML export
 fig = px.line(
     yearly_average_night_points,
     title='Yearly Average Nighttime Data Points',
     labels={'index': 'Year', 'value': 'Average Points'}
 )
-
-# Adding a bar chart layer for yearly averages
 fig.add_bar(x=yearly_average_night_points.index, y=yearly_average_night_points.values)
 
-# Update layout for better appearance
 fig.update_layout(
     title_font_size=18,
     xaxis_title="Year",
     yaxis_title="Average Points",
-    legend_title="Legend",
-    xaxis=dict(type='category')  # Ensure x-axis shows years as categories
+    legend_title="Legend"
 )
 
-# Customize line and bar colors
-fig.data[0].update(line=dict(color='green', width=2))  # Line color and thickness
-fig.data[1].update(marker_color='blue')  # Bar color
-
-# Ensure directory exists before saving
-os.makedirs('/content/drive/MyDrive/', exist_ok=True)
-
 # Save Plotly chart as an HTML file
-output_html_path = "/content/drive/MyDrive/geolocation_distance_chart_2.html"
-fig.write_html(output_html_path)
-
-# Restore original stdout
-sys.stdout.close()
-sys.stdout = original_stdout
-
-# Visualization is embedded in HTML, no print statements will be shown.
+fig.write_html("/content/drive/MyDrive/Where's_Schueller_Visualization2.html")
+print("Plotly HTML file saved to Google Drive.")
 
 
