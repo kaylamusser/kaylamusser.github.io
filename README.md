@@ -14,7 +14,7 @@ Where's Schueller?
 
 <iframe 
     src="https://<kaylamusser>.github.io/<kaylamusser.github.io
-/geolocation_distance_chart_2.html" 
+/Where's_Schueller_Visualization2.html" 
     style="position: absolute; top: 0; left: 0; width: 100%; height: 600px;" 
     frameborder="0">
 </iframe>
