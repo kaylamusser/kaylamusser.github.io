@@ -12,4 +12,8 @@ Data Sources and Project Ideas:
 
 Where's Schueller?
 
+In this study, I aimed to explore the frequency of data points recorded between 10 PM and 6 AM. My hypothesis suggested that nighttime data points would not exhibit a distinct pattern, as the recordings are likely to be random in nature during these hours.
+
+Finding: The trend shows a general decrease in the average number of data points recorded overnight from 2013 to 2024. The highest average was recorded in 2013 (364.75), while the lowest was in 2024 (144.32).
+
 {% include_relative Vis2.html %}
