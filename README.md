@@ -24,3 +24,9 @@ This analysis aims to answer the question: How many days was Schueller not withi
 
 Above & Beyond:
 
+
+I created a visualization that shows the overall average of the nighttime data points across all years, instead of looking at each year separately. This gives a broader view of the data trends without focusing on yearly changes. The chart displays a single bar representing the average number of nighttime points throughout the entire period.
+
+{% include_relative Vis3.html %}
+
+
