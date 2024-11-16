@@ -18,6 +18,7 @@ Finding: The trend shows a general decrease in the average number of data points
 
 {% include_relative Vis2.html %}
 
+{% include_relative Vis.html %}
 
 
 ere is an interactive visualization of my geolocation data:
