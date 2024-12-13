@@ -29,4 +29,10 @@ I created a visualization that shows the overall average of the nighttime data p
 
 {% include_relative Vis3.html %}
 
+Recent Project: 
+
+This project was a partner project for my data science class and utilizes a Kaggle dataset containing geolocation data from Twitter during fifteen major natural disasters across five types (typhoons, wildfires, earthquakes, winter storms, and thunderstorms). The dataset includes over 3.6 million geo-tagged tweets from 212,735 users, providing information about human movement before, during, and after each event. The objective is to analyze how far users migrate during these events, variations in migration distances and timing across disaster types, and the potential influence of socioeconomic factors like GDP on migration behavior.
+
+https://kaylamusser.github.io/Twitter-Disaster/
+
 
